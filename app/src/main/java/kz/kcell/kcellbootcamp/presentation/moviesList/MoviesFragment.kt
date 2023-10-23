@@ -6,6 +6,7 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kz.kcell.kcellbootcamp.R
@@ -27,7 +28,10 @@ class MoviesFragment : Fragment(R.layout.fragment_movies) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.movieRecyclerView.adapter = this@MoviesFragment.adapter
+        val layoutManager = LinearLayoutManager(context)
+        binding.movieRecyclerView.layoutManager = layoutManager
         setupObservers()
+
     }
 
     private fun setupObservers() {
