@@ -41,7 +41,7 @@ class MoviesAdapter(
                 onClick.invoke(item)
             }
             movieItemTitle.text = item.title
-            movieItemRelease.text = item.releaseDate
+            movieItemRelease.text = formatDate(item.releaseDate)
             movieItemRatingbar.rating = item.voteAverage.toFloat().orZero()
             movieItemPoster.loadImage(
                 BuildConfig.IMAGE_URL + item.posterPath,
@@ -59,3 +59,28 @@ class DiffUtilCallback : DiffUtil.ItemCallback<Movie>() {
 
 }
 
+fun getMonthNameFromDigit(monthDigit: String): String {
+    return when (monthDigit.toIntOrNull()) {
+        1 -> "Jan"
+        2 -> "Feb"
+        3 -> "Mar"
+        4 -> "Apr"
+        5 -> "May"
+        6 -> "June"
+        7 -> "July"
+        8 -> "Aug"
+        9 -> "Sep"
+        10 -> "Oct"
+        11 -> "Nov"
+        12 -> "Dec"
+        else -> "Invalid Month"
+    }
+}
+
+fun formatDate(dateString: String): String {
+    val day = dateString.slice(8..9)
+    val month = getMonthNameFromDigit(dateString.slice(5..6))
+    val year = dateString.slice(0..3)
+
+    return "$day $month $year"
+}

@@ -18,7 +18,7 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        buildConfigField("String", "API_KEY", "\"f02bc29a795c519c011722d93172a48c\"")
+        buildConfigField("String", "API_KEY", "\"fa84dfb57a1472eb1a865ef9709b5447\"")
         buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org/3/\"")
         buildConfigField("String", "IMAGE_URL", "\"https://image.tmdb.org/t/p/w500/\"")
     }
